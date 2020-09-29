@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div id="board1" class="mt-5" style="width:400px;">
+    </div>
+    <div class="col-md-auto mt-5">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="gameResult">Game result</label>
+          <input class="form-control" id="gameResult" [value]="game.result" readonly>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="sideToMove">Side to move</label>
+          <input class="form-control" id="sideToMove" [value]="game.board.sideToMove" readonly>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="gameResult">Move from</label>
+          <input class="form-control" id="moveFrom" [(ngModel)]="move.from">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="sideToMove">Move to</label>
+          <input class="form-control" id="moveTo" [(ngModel)]="move.to">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary align-items-end" (click)="doMove()">Move piece</button>
+      <div *ngIf="displayAlert" class="form-group mt-3">
+        <ngb-alert  type="danger" [dismissible]="false">
+          <strong>Error!</strong> {{ alertMessage }}
+        </ngb-alert>
+      </div>
+    </div>
+  </div>
+</div>
